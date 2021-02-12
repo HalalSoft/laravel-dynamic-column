@@ -48,10 +48,7 @@ class DynamicGrammar extends MySqlGrammar
      */
     protected function whereDynamicColumnExists(Builder $query, $where)
     {
-        $not = $where['not'] ? 'not ' : '';
-
-
-        return $not.$this->compileDynamicExists(
+        return $this->compileDynamicExists(
                 $where['column'],
                 $this->parameter($where['value'])
             );

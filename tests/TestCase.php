@@ -3,10 +3,8 @@
 namespace Halalsoft\LaravelDynamicColumn\Tests;
 
 use Halalsoft\LaravelDynamicColumn\Tests\Models\Page;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Collection;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class  TestCase extends BaseTestCase
@@ -20,8 +18,6 @@ class  TestCase extends BaseTestCase
 
     protected function setUpDatabase()
     {
-        file_put_contents(__DIR__.'/temp/database.sqlite', null);
-
 
         $this->app['db']->connection()->getSchemaBuilder()->create(
             'pages',
@@ -30,7 +26,6 @@ class  TestCase extends BaseTestCase
                 $table->text('options')->nullable();
             }
         );
-//        $this->createTables('articles', 'users');
 
 
         Page::create(['id' => 1]);

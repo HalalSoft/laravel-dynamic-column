@@ -13,7 +13,7 @@ class DynamicScope implements Scope
 
     public function apply(Builder $builder, Model $model)
     {
-        $dynamicColumns = $model->getDynamicColumns();
+        $dynamicColumns = (array) $model->getDynamicColumns();
         if (empty($builder->getQuery()->columns)) {
             foreach ($dynamicColumns as $column) {
                 $builder = $builder->select(['*'])->addSelect(DB::raw("COLUMN_JSON($column) as $column"));
