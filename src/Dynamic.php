@@ -35,11 +35,15 @@ class Dynamic implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
-        $values = '';
-        foreach ($value as $k => $v) {
-            $values .= ($values ? ',' : '')."'$k','$v'";
-        }
+        if (is_array($value)) {
+            $values = '';
+            foreach ($value as $k => $v) {
+                $values .= ($values ? ',' : '')."'$k','$v'";
+            }
 
-        return DB::raw("column_create($values)");
+            return DB::raw("column_create($values)");
+        } else {
+            return $value;
+        }
     }
 }

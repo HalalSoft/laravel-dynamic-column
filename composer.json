@@ -19,14 +19,28 @@
     }
   ],
   "require": {
-    "php": ">=7.3"
+    "php": ">=7.3",
+    "illuminate/database": "6.*|7.*|8.*",
+    "illuminate/support": "6.*|7.*|8.*"
   },
   "require-dev": {
-    "illuminate/database": "6.*|7.*|8.*"
+    "phpunit/phpunit": "8.* || ^9.0",
+    "orchestra/testbench": "^4.0 || ^5.0 || ^6.0"
   },
   "autoload": {
     "psr-4": {
       "Halalsoft\\LaravelDynamicColumn\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Halalsoft\\LaravelDynamicColumn\\Test\\": "tests"
+    },
+    "classmap": [
+      "tests"
+    ]
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }

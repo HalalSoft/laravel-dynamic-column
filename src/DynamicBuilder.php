@@ -109,13 +109,12 @@ class DynamicBuilder extends QueryBuilder
      */
     public function get($columns = ['*'])
     {
-
-        if ($this->model !== null && !empty( $this->dynamicColumns)) {
+        if ($this->model !== null && !empty($this->dynamicColumns)) {
             $i = 0;
             foreach ($this->wheres as $where) {
                 if (strpos($where['column'], '->')) {
                     $parts = explode('->', $where['column'], 2);
-                    if (in_array($parts[0],  $this->dynamicColumns)) {
+                    if (in_array($parts[0], $this->dynamicColumns)) {
                         $this->wheres[$i]['column'] = DB::raw("COLUMN_GET(`$parts[0]`, '$parts[1]' as char)");
                     }
                 }
@@ -127,7 +126,7 @@ class DynamicBuilder extends QueryBuilder
         return collect(
             $this->onceWithColumns(
                 Arr::wrap($columns),
-                function () {
+                function() {
                     return $this->processor->processSelect($this, $this->runSelect());
                 }
             )
