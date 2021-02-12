@@ -1,0 +1,31 @@
+{
+  "name": "halalsoft/laravel-dynamic-columns",
+  "description": "Provides a trait for Laravel Eloquent/Query builder to handle MariaDB Dynamic Column.",
+  "keywords": [
+    "laravel",
+    "illuminate",
+    "eloquent",
+    "mariadb",
+    "dynamic-column",
+    "dynamic"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Muhammad Dyas Yaskur",
+      "email": "dyas@yaskur.com",
+      "homepage": "https://yaskur.net"
+    }
+  ],
+  "require": {
+    "php": ">=7.3"
+  },
+  "require-dev": {
+    "illuminate/database": "6.*|7.*|8.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Halalsoft\\LaravelDynamicColumn\\": "src/"
+    }
+  }
+}

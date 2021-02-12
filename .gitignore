@@ -1,0 +1,10 @@
+build
+composer.lock
+docs
+vendor
+.idea
+php.xml
+shelf/
+vcs.xml
+.phpstorm.meta.php
+.phpunit.result.cache
