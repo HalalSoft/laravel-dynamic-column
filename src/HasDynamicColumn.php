@@ -14,6 +14,15 @@ trait HasDynamicColumn
     protected static function bootHasDynamicColumn()
     {
         static::addGlobalScope(new DynamicScope());
+        static::saving(
+            function ($model) {
+                foreach ($model->getCasts() as $column => $cast) {
+                    if ($cast == 'Halalsoft\LaravelDynamicColumn\Dynamic') {
+                        $model->$column = $model->$column;
+                    }
+                }
+            }
+        );
     }
 
 
