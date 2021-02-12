@@ -32,7 +32,7 @@ trait HasDynamicColumn
     {
         $columns = [];
         foreach ($this->getCasts() as $column => $cast) {
-            if ($cast == "App\Models\Traits\Dynamic") {
+            if ($cast == "Halalsoft\LaravelDynamicColumn\Dynamic") {
                 $columns[] = $column;
             }
         }
