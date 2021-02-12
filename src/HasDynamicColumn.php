@@ -2,8 +2,6 @@
 
 namespace Halalsoft\LaravelDynamicColumn;
 
-use Illuminate\Database\Query\Expression;
-use Schema;
 
 trait HasDynamicColumn
 {

@@ -1,5 +1,5 @@
 {
-  "name": "halalsoft/laravel-dynamic-columns",
+  "name": "halalsoft/laravel-dynamic-column",
   "description": "Provides a trait for Laravel Eloquent/Query builder to handle MariaDB Dynamic Column.",
   "keywords": [
     "laravel",
