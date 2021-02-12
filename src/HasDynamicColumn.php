@@ -26,4 +26,18 @@ trait HasDynamicColumn
             $connection->getPostProcessor(), $this
         );
     }
+
+
+    public function getDynamicColumns()
+    {
+        $columns = [];
+        foreach ($this->getCasts() as $column => $cast) {
+            if ($cast == "App\Models\Traits\Dynamic") {
+                $columns[] = $column;
+            }
+        }
+
+        return $columns;
+    }
+
 }
