@@ -6,6 +6,7 @@
     "illuminate",
     "eloquent",
     "mariadb",
+    "blob",
     "dynamic-column",
     "dynamic"
   ],
