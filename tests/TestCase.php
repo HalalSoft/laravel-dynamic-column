@@ -65,11 +65,11 @@ class  TestCase extends BaseTestCase
             'database.connections.mysql',
             [
                 'driver'   => 'mysql',
-                'host'     => '34.121.57.251',
-                'port'     => '3306',
-                'database' => 'testdb',
-                'username' => 'root',
-                'password' => '',
+                'host'     => env('DB_HOST', '127.0.0.1'),
+                'port'     => env('DB_PORT', '3306'),
+                'database' => env('DB_DATABASE', 'testdb'),
+                'username' => env('DB_USERNAME', 'root'),
+                'password' => env('DB_PASSWORD', ''),
             ]
         );
     }

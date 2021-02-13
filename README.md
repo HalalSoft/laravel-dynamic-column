@@ -14,11 +14,27 @@ $author = Author::where('option->vehicle','car')->first();
 
 $author = $author->option;
 // => Array containing `option` dynamic  column
-
 $option = $author->option;
 $option['vehicle_brand'] = 'Esemka';
 $author->option = $option;
 $author->save();
+
+//You can also create data field as array
+$newData = MyModel::create([
+    'other_column' => 'this just another column data',
+    'the_column' => ['data1'=>'value1','data2'=>'value2']
+]);
+
+//to update a json field/key you use, you may use the `->` operator when calling the update method:
+
+$page->update(['content->data1' => 'value1new']);
+    
+//or you can still update whole column using normal array:
+$page->update(['content' => ['data1'=>'value1new','data2'=>'value2new']]);
+//You can set as array using other method like `updateOrCreate()`, `firstOrCreate()`,  etc.
+
+//This package also support query builder using:
+Model::query()->where('the_column->data1', 'value1')->first();
 ```
 
 
@@ -58,4 +74,4 @@ If you discover any security related issues, just open an issue on this git or e
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
