@@ -20,6 +20,21 @@ class Dynamic implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
+        if (gettype($value) == 'object') {
+            preg_match('#\((.*?)\)#', (string)$value, $match);
+
+            if (isset($match[1])) {
+                $match[1] = str_replace('\'', '', $match[1]);
+                $arr      = explode(',', $match[1]);
+                $values   = [];
+                for ($i = 1; $i < count($arr); $i += 2) {
+                    $values[$arr[$i - 1]] = $arr[$i];
+                }
+
+                return $values;
+            }
+        }
+
         return json_decode($value, true);
     }
 
