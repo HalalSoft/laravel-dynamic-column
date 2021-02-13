@@ -12,13 +12,10 @@ class Page extends Model
 
     protected $guarded = [];
 
-    public $timestamps = false;
-
-
-//    protected $casts
-//        = [
-//            'options' => Dynamic::class,
-//        ];
+    protected $casts
+        = [
+            'options' => Dynamic::class,
+        ];
 
 
 }
