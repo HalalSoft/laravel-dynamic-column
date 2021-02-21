@@ -17,7 +17,7 @@ trait HasDynamicColumn
         static::saving(
             function($model) {
                 foreach ($model->getCasts() as $column => $cast) {
-                    if ($cast == 'Halalsoft\LaravelDynamicColumn\Dynamic') {
+                    if ($cast == 'Halalsoft\LaravelDynamicColumn\Dynamic' || $cast == "Halalsoft\LaravelDynamicColumn\DynamicObject") {
                         $model->$column = $model->$column;
                     }
                 }
@@ -41,7 +41,7 @@ trait HasDynamicColumn
     {
         $columns = [];
         foreach ($this->getCasts() as $column => $cast) {
-            if ($cast == "Halalsoft\LaravelDynamicColumn\Dynamic") {
+            if ($cast == "Halalsoft\LaravelDynamicColumn\Dynamic" || $cast == "Halalsoft\LaravelDynamicColumn\DynamicObject") {
                 $columns[] = $column;
             }
         }
