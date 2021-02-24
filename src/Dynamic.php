@@ -56,7 +56,7 @@ class Dynamic implements CastsAttributes
                 $values .= ($values ? ',' : '')."'$k','$v'";
             }
 
-            return DB::raw("column_create($values)");
+            return !empty($values) ? DB::raw("column_create($values)") : null;
         } else {
             return $value;
         }
